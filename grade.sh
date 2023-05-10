@@ -8,6 +8,13 @@ mkdir grading-area
 git clone $1 student-submission
 echo 'Finished cloning'
 
+if [[$1 -ne 'ListExample.java']]
+do
+echo 'File Missing/Incorrect File Name'
+done
+
+
+
 
 # Draw a picture/take notes on the directory structure that's set up after
 # getting to this point
