@@ -10,7 +10,6 @@ echo 'Finished cloning'
 files=`find student-submission/ -name "*java"` 
 for file in $files
 do
-    echo $file
     if [[ $file == "student-submission/ListExamples.java" ]]
     then
         echo 'File Found'
@@ -24,7 +23,14 @@ done
 cp -r TestListExamples.java grading-area/
 cp -R lib/ grading-area/
 cd grading-area/
-javac -cp $CPATH ListExamples.java TestListExamples.java
+javac -cp $CPATH ListExamples.java TestListExamples.java 
+if [[ $? -ne 0 ]]
+then  
+    echo 'error'
+    exit 1
+else
+    echo 'compile muy bueno'
+fi
 java -cp $CPATH org.junit.runner.JUnitCore TestListExamples
 
 
